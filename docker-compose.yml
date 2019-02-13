@@ -1,0 +1,26 @@
+version: '3.4'
+services:
+    timer:
+        build:
+            context: ./timer/timer-demo
+            dockerfile: dockerfile
+        networks:
+        - main
+        ports:
+        - '5050:80'
+        restart: unless-stopped
+    api:
+        build:
+            context: ./weather_api/WeatherAPI
+            dockerfile: dockerfile
+        networks:
+        - main
+        ports:
+         - '1971:1971'
+        environment:
+            ASPNETCORE_ENVIRONMENT: Docker
+        restart: unless-stopped
+networks:
+  main:
+    driver: bridge
+

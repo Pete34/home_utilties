@@ -1,0 +1,52 @@
+section {
+  border: 1px solid gray;
+  padding: 2em;
+  text-align: left;
+  width: 350px;
+  height:40npo0px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 0.25em;
+}
+
+.summary{
+  font-weight: bold;
+  min-height: 50px;
+ 
+  padding: 0.25em;
+}
+
+.name, .value{ 
+  
+  padding: 0.25em;
+}
+
+.small {
+  font-size: 8px;
+}
+
+.title {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+.time {
+  text-align: center;
+  padding: 1em;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+app-weather-picture {
+  display: block;
+  margin: auto;
+}
