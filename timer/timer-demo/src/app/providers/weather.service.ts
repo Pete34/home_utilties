@@ -20,7 +20,8 @@ export class WeatherService {
   getWeather$(longitude: number, latitude: number): Observable<any> {
     const weatherRequest = new WeatherRequestDTO(longitude, latitude);
     const weather$ = this.http.post(
-      `${this.WEATHER_HOST}/api/weather`,
+     `${this.WEATHER_HOST}/api/weather`,
+    // 'api/weather',
       weatherRequest,
     );
     return weather$;

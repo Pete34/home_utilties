@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace WeatherAPI.Controllers
         }
 
         public IConfiguration Configuration { get; }
-
+        [HttpPost]
         public IActionResult GetWeather(WeatherRequestDTO weatherRequest)
         {
             var latitude = weatherRequest.Latitude;
@@ -38,6 +39,17 @@ namespace WeatherAPI.Controllers
              
 
             return Ok(weather);
+        }
+        [HttpGet]
+        public ContentResult LifeCheck()
+        {
+            return new ContentResult
+            {
+                ContentType = "text/html",
+                StatusCode = (int)HttpStatusCode.OK,
+                Content = "<html>" +
+                "<body><h1 style='color:darkgreen; text-align: center; padding: 3rem; border: 1px solid gray; font-family: Arial, sans-serif'>The Weather API is Alive.</h1></body></html>"
+            };
         }
     }
 }

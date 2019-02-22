@@ -1,9 +1,8 @@
 section {
   border: 1px solid gray;
-  padding: 2em;
+  padding: 3em;
   text-align: Left;
-  width: 250px;
-  height: 300px;
+  width: 350px;
 }
 
 .row {
@@ -19,8 +18,9 @@ section {
   min-height: 50px;
 }
 
-.name, .value{
-  padding: 0.1em;
+.name,
+.value {
+  padding: 0.5rem;
 }
 
 .small {

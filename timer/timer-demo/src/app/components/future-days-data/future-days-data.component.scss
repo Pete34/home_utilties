@@ -1,9 +1,8 @@
 section {
   border: 1px solid gray;
-  padding: 2em;
+  padding: 3em;
   text-align: left;
   width: 350px;
-  height:40npo0px;
 }
 
 .row {
@@ -15,16 +14,16 @@ section {
   padding: 0.25em;
 }
 
-.summary{
+.summary {
   font-weight: bold;
   min-height: 50px;
- 
-  padding: 0.25em;
+
+  padding: 0.5em;
 }
 
-.name, .value{ 
-  
-  padding: 0.25em;
+.name,
+.value {
+  padding: 0.5em;
 }
 
 .small {
