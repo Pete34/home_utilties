@@ -4,7 +4,7 @@ services:
     timer:
         build:
             context: ../timer/timer-demo
-            dockerfile: dockerfile
+            dockerfile: prod.dockerfile
             args:
                 build-type: build-prod
         networks:
