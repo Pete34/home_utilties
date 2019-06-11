@@ -1,0 +1,17 @@
+
+## simple yaml to replace docker run 
+version: '3'
+services:
+  timer:
+    build: .
+    networks:
+      - utility
+    ports:
+      - '3337:80'
+    restart: unless-stopped
+networks:
+  utility:
+    driver: bridge
+    
+    
+    

@@ -1,0 +1,139 @@
+:host {
+  flex: 1;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: bolder;
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: steelblue;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+main {
+  min-height: 9em;
+  .quote-heading {
+    font-weight: bold;
+    padding-bottom: 0.25em;
+    font-size: 18px;
+  }
+  .quote-body {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 18px;
+  }
+
+  .quote-author {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    color: darken(steelblue, 5%);
+    font-style: italic;
+  }
+}
+
+.different {
+  margin-top: 1em;
+  span {
+    font-size: 12px;
+    background: steelblue;
+    color: white;
+    text-transform: uppercase;
+    padding: 5px;
+  }
+  span:hover {
+    background: darken(steelblue, 15%);
+  }
+}
+
+.button-holder {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.weather-title {
+  font-weight: bold;
+  padding-bottom: 0.25em;
+  font-size: 18px;
+}
+
+.weather-container {
+  padding: 2em;
+}
+
+.weather,
+.weather-info {
+  max-width: 1200px;
+  margin: auto;
+  app-weather-info {
+    display: block;
+  }
+}
+
+small {
+  display: block;
+}
+
+section {
+  // sets width of entire page.
+  max-width: 1200px;
+
+  //centers page.
+  margin: auto;
+  // adds some spacing.
+  padding: 4em;
+  .date {
+    padding: 1em;
+    font-size: 40px;
+    text-align: center;
+    color: steelblue;
+    span {
+      color: black;
+    }
+  }
+
+  app-count-down-timer {
+    display: block;
+    margin: auto;
+  }
+
+  app-basic-timer {
+    display: block;
+    margin: auto;
+  }
+}
+
+// styles for audio control section.
+.audio-info {
+  text-align: center;
+  font-size: 12px;
+  padding: 4em;
+  margin: auto;
+  .controls-title {
+    padding: 1em;
+  }
+  audio {
+    display: block;
+    margin: auto;
+  }
+}
+
+// styles footer.
+footer {
+  display: flex;
+  background: #eee;
+  width: 100%;
+  padding: 1em;
+  position: fixed;
+  left: 1px;
+  bottom: 1px;
+  border: 1px solid gray;
+  .spacer {
+    flex: 1;
+  }
+}

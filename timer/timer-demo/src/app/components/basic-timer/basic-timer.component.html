@@ -1,0 +1,17 @@
+<div class="timer">
+  <div class="timer-title">Super Basic Timer</div>
+  <div class="button-block">
+    <app-basic-button (click)="startTimer()">Start Timer</app-basic-button
+    ><app-basic-button (click)="stopTimer()">Stop Timer</app-basic-button
+    ><app-basic-button [light]=true (click)="resetTimer()">Reset Timer</app-basic-button>
+  </div>
+  <!-- timer info block -->
+  <div class="timer-info">
+    <span *ngIf="timeCounted?.hours"> {{ timeCounted.hours }} Hours </span>
+    <span *ngIf="timeCounted?.minutes">
+      {{ timeCounted.minutes }} Minutes
+    </span>
+    <span> {{ timeCounted?.seconds || 0 }} Seconds </span>
+  </div>
+  <!-- timer info block end -->
+</div>
