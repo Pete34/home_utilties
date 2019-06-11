@@ -3,13 +3,13 @@
 FROM node:11.15-alpine as builder
 ## pass in either build-prod or build in the npm run.
 ARG build-type
-RUN npm i -g @angular/cli
+# RUN npm i -g @angular/cli
 # Create app directory
 WORKDIR /app
 # Install app dependencies
 COPY package.json package-lock.json /app/
 #RUN cd /app && npm install
-RUN npm install
+RUN npm ci
 # Copy project files into the docker image
 COPY .  /app
 # RUN cd /app && npm run $build-type

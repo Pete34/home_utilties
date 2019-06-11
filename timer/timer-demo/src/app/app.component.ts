@@ -1,17 +1,13 @@
-import {
-  Component,
-  OnDestroy,
-  ViewChild,
-  ElementRef,
-  OnInit,
-} from '@angular/core';
+
 import { Observable, timer, Subscription, interval } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { FormGroup, FormBuilder } from '@angular/forms';
+
 import { secondsToTime, Time } from './helper';
 import { QuoteService } from './providers/quote.service';
 import { Quote } from '@angular/compiler';
 import { WeatherService } from './providers/weather.service';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 /**
  * This component is a demo project that creates some simple timers.
  * 1. Display Date and Time (updated every second)
@@ -34,7 +30,7 @@ export class AppComponent implements OnDestroy, OnInit {
   timeCounted: Time;
   isActive = false;
   // for audio player
-  @ViewChild('audioOption')
+  @ViewChild('audioOption', {static: true})
   audioPlayerRef: ElementRef;
   quote$: Observable<Quote>;
   hideWeather = false;
