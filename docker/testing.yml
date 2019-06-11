@@ -1,9 +1,13 @@
+## https://vsupalov.com/docker-arg-env-variable-guide/
 version: '3.4'
 services:
     timer:
         build:
-            context: ./timer/timer-demo
+            context: ../timer/timer-demo
             dockerfile: dockerfile
+            ## build not production
+            args:
+                build-type: build-local-dock
         networks:
         - main
         ports:
@@ -11,16 +15,15 @@ services:
         restart: unless-stopped
     api:
         build:
-            context: ./weather_api/WeatherAPI
+            context: ../weather_api/WeatherAPI
             dockerfile: dockerfile
         networks:
         - main
         ports:
-         - '1971:1971'
+         - '1971:5000'
         environment:
             ASPNETCORE_ENVIRONMENT: Docker
         restart: unless-stopped
 networks:
   main:
     driver: bridge
-

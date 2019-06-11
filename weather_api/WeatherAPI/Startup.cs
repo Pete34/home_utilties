@@ -39,7 +39,6 @@ namespace WeatherAPI
                          options => options
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
                         .AllowAnyOrigin());
 
 

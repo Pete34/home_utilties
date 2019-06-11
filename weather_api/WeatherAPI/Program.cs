@@ -19,7 +19,10 @@ namespace WeatherAPI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://0.0.0.0:1971")
-                .UseStartup<Startup>();
+            .UseKestrel(options =>
+            {
+                options.ListenAnyIP(5000);
+            })
+            .UseStartup<Startup>();
     }
 }
