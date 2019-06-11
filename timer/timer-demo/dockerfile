@@ -1,6 +1,6 @@
 
 # STEP 1 build static website
-FROM node:8.9-alpine as builder
+FROM node:11.15-alpine as builder
 ## pass in either build-prod or build in the npm run.
 ARG build-type
 RUN npm i -g @angular/cli
@@ -8,10 +8,12 @@ RUN npm i -g @angular/cli
 WORKDIR /app
 # Install app dependencies
 COPY package.json package-lock.json /app/
-RUN cd /app && npm install
+#RUN cd /app && npm install
+RUN npm install
 # Copy project files into the docker image
 COPY .  /app
-RUN cd /app && npm run $build-type
+# RUN cd /app && npm run $build-type
+RUN npm run $build-type
 
 # STEP 2 build a small nginx image with static website
 FROM nginx:alpine
