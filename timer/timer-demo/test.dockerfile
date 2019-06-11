@@ -13,7 +13,7 @@ RUN npm ci
 # Copy project files into the docker image
 COPY .  /app
 # RUN cd /app && npm run $build-type
-RUN npm run build-local-dock
+RUN npm run $build-type
 
 # STEP 2 build a small nginx image with static website
 FROM nginx:alpine

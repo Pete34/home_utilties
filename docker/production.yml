@@ -5,8 +5,6 @@ services:
         build:
             context: ../timer/timer-demo
             dockerfile: prod.dockerfile
-            args:
-                build-type: build-prod
         networks:
         - main
         ports:
