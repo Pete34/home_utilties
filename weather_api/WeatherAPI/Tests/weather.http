@@ -1,7 +1,0 @@
-Post http://localhost:1971/api/weather HTTP/1.1
-content-type: application/json
-
-{
-    "latitude":30,
-    "longitude":60
-}
