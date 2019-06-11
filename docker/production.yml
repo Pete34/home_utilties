@@ -1,5 +1,5 @@
 ## https://vsupalov.com/docker-arg-env-variable-guide/
-version: '3.7'
+version: '3.6'
 services:
     timer:
         build:
