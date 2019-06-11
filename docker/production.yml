@@ -1,5 +1,5 @@
 ## https://vsupalov.com/docker-arg-env-variable-guide/
-version: '3.4'
+version: '3.7'
 services:
     timer:
         build:
@@ -22,6 +22,8 @@ services:
          - '1971:1971'
         environment:
             ASPNETCORE_ENVIRONMENT: Docker
+        depends_on:
+            - timer
         restart: unless-stopped
 networks:
   main:
