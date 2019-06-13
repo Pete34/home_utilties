@@ -1,0 +1,31 @@
+.timer {
+  border-radius: 1em;
+  margin-top: 4em;
+  padding: 1em;
+  text-align: center;
+  background: #f9f9f9;
+  box-shadow: 1px 1px gray;
+  transition: 1s ease-in;
+  // styles timer title
+  .timer-title {
+    font-family: Raleway;
+    font-size: 2.5em;
+    padding: 1em;
+  }
+
+  // styles timer info
+  .timer-info,
+  .message {
+    font-family: Raleway, sans-serif;
+    padding: 1em;
+    font-size: 30px;
+  }
+
+  &__button {
+    margin-right: 1em;
+  }
+}
+
+.timer.red {
+  background: orange;
+}

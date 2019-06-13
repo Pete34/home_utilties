@@ -1,0 +1,17 @@
+<div class="images-container">
+  <div *ngFor='let image of images | slice:start:end'
+       class="images-container__loop">
+    <figure class="image">
+      <img class="image__content"
+           [src]="image.baseImage"
+           [srcset]="image.srcSet"
+           alt="">
+    </figure>
+    <div class="title-section">
+      <div class="title-section__text">{{image.title}} </div>
+      <div class="title-section__spacer"></div>
+      <div class="title-section__next"
+            (click)="nextPicture()">Next Picture >></div>
+    </div>
+  </div>
+</div>

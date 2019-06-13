@@ -1,0 +1,20 @@
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hour-container,
+.day-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  button{
+    margin-right: 1em;
+  }
+}

@@ -5,25 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WeatherInfoComponent } from './components/weather-info/weather-info.component';
-import { WeatherPictureComponent } from './components/weather-picture/weather-picture.component';
-import { CurrentDataComponent } from './components/current-data/current-data.component';
-import { BasicTimerComponent } from './components/basic-timer/basic-timer.component';
-import { CountDownTimerComponent } from './components/count-down-timer/count-down-timer.component';
-import { FutureDaysDataComponent } from './components/future-days-data/future-days-data.component';
-import { BasicButtonComponent } from './components/basic-button/basic-button.component';
-
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherInfoComponent,
-    WeatherPictureComponent,
-    CurrentDataComponent,
-    BasicTimerComponent,
-    CountDownTimerComponent,
-    FutureDaysDataComponent,
-    BasicButtonComponent,
 
   ],
   imports: [
@@ -31,9 +20,13 @@ import { BasicButtonComponent } from './components/basic-button/basic-button.com
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

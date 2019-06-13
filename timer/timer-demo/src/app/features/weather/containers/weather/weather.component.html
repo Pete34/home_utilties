@@ -1,0 +1,12 @@
+<div class="weather">
+  <div class="weather__title">Weather In Your Area</div>
+  <div class="weather"
+       *ngIf="!(weather$ | async)"
+       (click)="getGeoInfo()">
+    Checking Weather...
+  </div>
+  <div *ngIf="(weather$ | async) as weather"
+       class="weather-info">
+    <app-weather-info [weather]="weather"> </app-weather-info>
+  </div>
+</div>

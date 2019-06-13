@@ -1,0 +1,37 @@
+@import 'variables';
+
+button {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  background: linear-gradient(
+    to right bottom,
+    $primary,
+    darken($primary, 15%)
+  );
+  color: white;
+  padding: 0.75em;
+  margin: 0.5em;
+  transition: 1s ease-in;
+  border: none;
+}
+
+button:hover {
+  background: linear-gradient(
+    to right bottom,
+    $primary,
+    darken($primary, 25%)
+  );
+}
+
+button.light {
+  background: #f9f9f9;
+  color: $primary;
+  outline: 2px solid $primary;
+  &:hover {
+    background: white;
+    color: #666;
+    outline: 2px solid #666;
+  }
+}

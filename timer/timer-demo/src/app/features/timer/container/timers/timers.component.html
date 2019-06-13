@@ -1,0 +1,25 @@
+<div class="timers">
+
+  <app-count-down-timer class="timers__count"
+                        (triggerClear)="clear()"
+                        (triggerCountDown)="startCountDown()"
+                        [timeLeft]="timeLeft"
+                        [isActive]="isActive"
+                        [timerForm]="timerForm"></app-count-down-timer>
+
+  <app-basic-timer class="timers__basic"
+                   [timeCounted]="timeCounted"
+                   (triggerTimer)="startTimer()"
+                   (triggerTimerReset)="resetTimer()"
+                   (triggerTimerStop)="stopTimer()"></app-basic-timer>
+
+
+  <div class="timers__audio-info">
+    <div class="controls-title">End of Timer Sound Effect</div>
+    <audio controls
+           #audioOption>
+      <source src="assets/sound/chime.mp3"
+              type="audio/mp3" />
+    </audio>
+  </div>
+</div>

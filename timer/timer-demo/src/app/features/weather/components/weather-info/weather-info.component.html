@@ -1,0 +1,44 @@
+<div *ngIf="weather"
+     class="weather-info">
+  <!-- weather details buttons.-->
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="hours = !hours; days=false;"
+            class="button">
+      <span *ngIf="!hours">Show Next 24 Hours.</span>
+      <span *ngIf="hours">Hide Next 24 Hours.</span>
+    </button>
+    <button mat-raised-button  (click)="days = !days; hours=false"
+            class="button">
+      <span *ngIf="!days">Show Upcoming Days</span>
+      <span *ngIf="days">Hide Upcoming Days</span>
+    </button>
+  </div>
+
+  <!-- current weather -->
+  <app-current-data *ngIf="!(hours || days)"
+                    [currentData]="weather.currently">
+    <span>Current Weather</span>
+  </app-current-data>
+  <!-- end current -->
+  <!-- upcoming hours -->
+  <div *ngIf="hours"
+       class="hour-container">
+    <div *ngFor="let data of (weather.hourly.data | slice: 1:25); let i = index"
+         class="hourly-today">
+      <app-current-data class="data"
+                        [currentData]="data">
+        In {{ i + 1 }} Hours
+      </app-current-data>
+    </div>
+  </div>
+  <!-- end hours -->
+  <!-- future days -->
+  <div *ngIf="days"
+       class="day-container">
+    <div *ngFor="let data of weather.daily.data; let i = index"
+         class="hourly-today">
+      <app-future-days-data [futureDay]="data"> </app-future-days-data>
+    </div>
+  </div>
+  <!-- end days -->
+</div>

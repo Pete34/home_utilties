@@ -1,126 +1,84 @@
+@import 'variables';
+
 :host {
-  flex: 1;
+  font-size: 1rem;
 }
 
-.title {
-  font-size: 50px;
-  font-weight: bolder;
+.toolbar {
+  &__title {
+    font-size: 2rem;
+    margin: 0 1em;
+  }
+  &__item {
+    margin-left: 1em;
+    margin-right: 4em;
+  }
+  &__big-spacer {
+    flex: 1;
+  }
+}
+
+
+.section{
+ 
   padding: 1em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  background: steelblue;
-  color: white;
-  text-shadow: 1px 1px black;
+  margin: auto;
+ 
+
 }
 
-main {
-  min-height: 9em;
-  .quote-heading {
-    font-weight: bold;
-    padding-bottom: 0.25em;
-    font-size: 18px;
-  }
-  .quote-body {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    font-size: 18px;
+.date{
+  text-align: center;
+  font-size: 3em;
+  padding:1em 0;
+  color: $primary;
+  max-width: 60em;
+  &__body{
+    color: black;
   }
 
-  .quote-author {
-    margin-top: 0.25em;
+}
+
+.quote {
+  margin: auto;
+  min-height: 14em;
+  max-width: 60em;
+  &__heading {
+    font-weight: bold;
+    padding: 0.5em 0;
+    font-size: 2em;
+  }
+  &__content {
+    font-size: 1.5em;
+    max-width: 800px;
+    padding-bottom: 0.5em;
+  }
+
+  &__author {
     margin-bottom: 0.25em;
-    color: darken(steelblue, 5%);
+    color: darken($primary, 20%);
     font-style: italic;
   }
-}
-
-.different {
-  margin-top: 1em;
-  span {
-    font-size: 12px;
-    background: steelblue;
-    color: white;
-    text-transform: uppercase;
-    padding: 5px;
-  }
-  span:hover {
-    background: darken(steelblue, 15%);
-  }
-}
-
-.button-holder {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.weather-title {
-  font-weight: bold;
-  padding-bottom: 0.25em;
-  font-size: 18px;
-}
-
-.weather-container {
-  padding: 2em;
-}
-
-.weather,
-.weather-info {
-  max-width: 1200px;
-  margin: auto;
-  app-weather-info {
-    display: block;
-  }
-}
-
-small {
-  display: block;
-}
-
-section {
-  // sets width of entire page.
-  max-width: 1200px;
-
-  //centers page.
-  margin: auto;
-  // adds some spacing.
-  padding: 4em;
-  .date {
-    padding: 1em;
-    font-size: 40px;
-    text-align: center;
-    color: steelblue;
+  &__button {
+    margin-top: 1em;
     span {
-      color: black;
+      font-size: 1.25em;
+      background: $primary;
+      color: white;
+      text-transform: uppercase;
+      padding: 0.25em;
+      
+    }
+    span:hover {
+      background: darken($primary, 15%);
     }
   }
-
-  app-count-down-timer {
-    display: block;
-    margin: auto;
-  }
-
-  app-basic-timer {
-    display: block;
-    margin: auto;
-  }
 }
 
-// styles for audio control section.
-.audio-info {
-  text-align: center;
-  font-size: 12px;
-  padding: 4em;
-  margin: auto;
-  .controls-title {
-    padding: 1em;
-  }
-  audio {
-    display: block;
-    margin: auto;
-  }
+
+.content {
+  display: block;
+  padding-bottom: 10em;
 }
 
 // styles footer.

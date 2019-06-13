@@ -1,0 +1,33 @@
+  <!-- countdown timer -->
+  <div [class.red]="isActive"
+       class="timer">
+    <div class="timer-title">Countdown Timer</div>
+    <form [formGroup]="timerForm">
+      <label for="">Hours</label>
+      <input formControlName="hours"
+             type=number>
+      <label for="">Minutes</label>
+      <input formControlName="minutes"
+             type=number>
+      <label for="">Seconds</label>
+      <input formControlName="seconds"
+             type=number>
+    </form>
+    <div class="button-block">
+      <button class="timer__button" mat-raised-button color="primary" (click)="startCountDown()">Start Timer</button>
+      <button  class="timer__button" mat-raised-button (click)="clear()">Cancel</button>
+    </div>
+    <!-- timer info block -->
+    <div *ngIf="!isActive"
+         class="timer-info">
+      <span *ngIf="timeLeft?.hours"> {{timeLeft.hours}} Hours </span>
+      <span *ngIf="timeLeft?.minutes"> {{timeLeft.minutes}} Minutes </span>
+      <span> {{timeLeft?.seconds || 0}} seconds </span>
+    </div>
+    <div *ngIf="isActive"
+         class="message">Timer Done</div>
+    <!-- timer info block end -->
+    <div class="timer__note">Note - Ending sound can be stopped by hitting the cancel button or pausing on control below (as
+      well as restarting timer).</div>
+  </div>
+  <!-- end of countdown timer -->

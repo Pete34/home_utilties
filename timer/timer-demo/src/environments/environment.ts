@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   quote_host: 'https://quotesapi.hypothetical.space',
-  weather_host: 'http://localhost:1971',
+  weather_host: 'http://localhost:5000',
 };
 
 /*

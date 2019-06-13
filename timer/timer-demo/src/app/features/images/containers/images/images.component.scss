@@ -1,0 +1,31 @@
+.image {
+  display: flex;
+ 
+  align-items: center;
+ 
+  &__content {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+    image-orientation: from-image;
+  }
+
+}
+
+.title-section{
+  display: flex;
+  justify-content: space-evenly;
+ 
+  &__text{
+    text-align: center;
+
+  }
+  &__spacer{
+    min-width: 4em;
+   
+  }
+  &__next{
+    align-self: flex-end;
+  }
+}
+ 

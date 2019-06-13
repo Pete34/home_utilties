@@ -1,0 +1,15 @@
+@import 'variables';
+
+ 
+
+.weather {
+    margin: auto;
+    //background: #fcfcfc;
+    padding: 1em;
+    &__title{
+      font-size: 2em;
+      text-align: center;
+    }
+     
+}
+
