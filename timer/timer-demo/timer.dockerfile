@@ -1,4 +1,5 @@
-
+## Must be built to appropriate environment ahead of time.
+## angular 8 not compiling in container..
 FROM nginx:alpine
 WORKDIR /app
 ## Remove default nginx website

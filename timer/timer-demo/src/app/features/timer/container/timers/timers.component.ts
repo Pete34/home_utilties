@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy
+} from '@angular/core';
 
 import { Observable, Subscription, timer, interval } from 'rxjs';
 import { Quote } from '@angular/compiler';
@@ -7,11 +13,12 @@ import { QuoteService } from 'src/app/providers/quote.service';
 import { WeatherService } from 'src/app/providers/weather.service';
 import { secondsToTime, Time } from 'src/app/helper';
 import { take } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-timers',
   templateUrl: './timers.component.html',
-  styleUrls: ['./timers.component.scss'],
+  styleUrls: ['./timers.component.scss']
 })
 export class TimersComponent implements OnInit, OnDestroy {
   date = new Date();
@@ -40,7 +47,7 @@ export class TimersComponent implements OnInit, OnDestroy {
    * sets up two observables based on timer rxjs.
    * subscribes to one with method..
    */
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private titleService: Title) {
     this.currentTime$ = timer(0, 1000);
     this.dateTimer$ = timer(1000, 1000);
     this.updateDate();
@@ -53,9 +60,11 @@ export class TimersComponent implements OnInit, OnDestroy {
    * starts a subcription to act as a timer.
    */
   startTimer() {
-    this.timerSub = this.currentTime$.subscribe((timerObs) => {
+    this.timerSub = this.currentTime$.subscribe(timerObs => {
       this.timerValue++;
       this.timeCounted = secondsToTime(this.timerValue);
+      const { hours, minutes, seconds } = this.timeCounted;
+      this.titleService.setTitle(`${hours}.${minutes}.${seconds}`);
     });
   }
 
@@ -64,6 +73,7 @@ export class TimersComponent implements OnInit, OnDestroy {
    */
   stopTimer() {
     this.timerSub.unsubscribe();
+    this.titleService.setTitle('timer');
   }
 
   /**
@@ -76,11 +86,12 @@ export class TimersComponent implements OnInit, OnDestroy {
     this.timeCounted.hours = 0;
     this.timeCounted.minutes = 0;
     this.timeCounted.seconds = 0;
+    this.titleService.setTitle('timer');
   }
 
   // we update date so time does not fall out of sync.
   updateDate() {
-    this.dateSub = this.dateTimer$.subscribe((result) => {
+    this.dateSub = this.dateTimer$.subscribe(result => {
       this.date = new Date();
     });
   }
@@ -93,7 +104,7 @@ export class TimersComponent implements OnInit, OnDestroy {
     this.timerForm = this.fb.group({
       hours: [0],
       minutes: [0],
-      seconds: [0],
+      seconds: [0]
     });
   }
 
@@ -123,11 +134,16 @@ export class TimersComponent implements OnInit, OnDestroy {
    * @param totalSeconds
    */
   private subscribeToCountDown(totalSeconds: number) {
-    this.countDownSub = this.countDownTimer$.subscribe((result) => {
+    this.countDownSub = this.countDownTimer$.subscribe(result => {
       this.timeLeft = secondsToTime(totalSeconds);
       totalSeconds--;
       const remaining =
         this.timeLeft.hours + this.timeLeft.minutes + this.timeLeft.seconds;
+      this.titleService.setTitle(
+        `${this.timeLeft.hours}.${this.timeLeft.minutes}.${
+          this.timeLeft.seconds
+        }`
+      );
       if (remaining === 0) {
         this.playSound();
       }
@@ -149,6 +165,11 @@ export class TimersComponent implements OnInit, OnDestroy {
     this.audioPlayerRef.nativeElement.load();
     this.audioPlayerRef.nativeElement.play();
     this.isActive = true;
+    this.resetTitle();
+  }
+
+  private resetTitle() {
+    this.titleService.setTitle('timer');
   }
 
   /**
@@ -163,6 +184,7 @@ export class TimersComponent implements OnInit, OnDestroy {
     this.audioPlayerRef.nativeElement.pause();
     this.timeLeft = { hours: 0, minutes: 0, seconds: 0 };
     this.isActive = false;
+    this.resetTitle();
   }
 
   // we want to unsubscribe to prevent memory leak.
