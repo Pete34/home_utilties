@@ -1,6 +1,6 @@
- FROM microsoft/dotnet:sdk AS build-env
+FROM microsoft/dotnet:sdk AS build-env
 WORKDIR /app
-
+LABEL maintainer="PeteGrady" version="0.1" name="weather_api"
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
 RUN dotnet restore
@@ -15,5 +15,6 @@ EXPOSE 1971
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y curl
+HEALTHCHECK CMD curl --fail http://localhost:1971/ || exit 1
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "WeatherAPI.dll"]
