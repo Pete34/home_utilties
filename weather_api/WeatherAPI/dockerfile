@@ -15,6 +15,6 @@ EXPOSE 1971
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y curl
-HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
+HEALTHCHECK CMD curl --fail http://localhost:1971/ || exit 1
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "WeatherAPI.dll"]

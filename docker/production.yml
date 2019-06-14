@@ -17,7 +17,7 @@ services:
     networks:
       - home_page
     ports:
-      - '1971:5000'
+      - '1971:1971'
     environment:
       ASPNETCORE_ENVIRONMENT: Docker
     depends_on:
