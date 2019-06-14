@@ -1,8 +1,8 @@
 ## https://vsupalov.com/docker-arg-env-variable-guide/
 version: '2.4'
 services:
-  mem_limit: 30m
   timer:
+    mem_limit: 30m
     build:
       context: ../timer/timer-demo
       dockerfile: timer.dockerfile
